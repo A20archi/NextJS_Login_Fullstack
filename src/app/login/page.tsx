@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
 const carouselImages = ["/iitbhu_1.webp", "/iitbhu_2.webp", "/iitbhu_3.webp"];
 
@@ -99,13 +100,11 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-
   const [signupData, setSignupData] = useState<SignupData>({
     username: "",
     email: "",
     password: "",
   });
-
   const [showSignup, setShowSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -232,6 +231,18 @@ export default function LoginPage() {
                 )}
               </button>
             </div>
+
+            {/* ✅ Forgot Password Button */}
+            {!showSignup && (
+              <div className="text-sm text-right">
+                <Link
+                  href="/forgot-password"
+                  className="text-[#8b5e3c] hover:underline"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
+            )}
 
             <button
               type="submit"
